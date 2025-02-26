@@ -16,7 +16,6 @@ public class OrderFragment extends Fragment {
 
 
     public OrderFragment() {
-        // Required empty public constructor
     }
 
     public static OrderFragment newInstance() {
