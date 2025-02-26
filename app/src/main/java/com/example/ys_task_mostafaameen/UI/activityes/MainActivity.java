@@ -1,14 +1,15 @@
-package com.example.ys_task_mostafaameen;
+package com.example.ys_task_mostafaameen.UI.activityes;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.ys_task_mostafaameen.R;
+import com.example.ys_task_mostafaameen.UI.activityes.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,11 +26,10 @@ public class MainActivity extends AppCompatActivity {
         animationView.animate().translationY(0f).setDuration(1500);
         animationView.playAnimation();
 
-//        // الانتقال إلى الشاشة الرئيسية بعد 3 ثوانٍ
-//        new Handler().postDelayed(() -> {
-//            startActivity(new Intent(SplashActivity.this, MainActivity.class));
-//            finish();
-//        }, 3000);
+        new Handler().postDelayed(() -> {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }, 3000);
 
     }
 }
