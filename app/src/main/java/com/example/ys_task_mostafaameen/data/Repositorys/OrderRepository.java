@@ -11,6 +11,7 @@ import com.example.ys_task_mostafaameen.data.Api.RequestModels.LoginRequest;
 import com.example.ys_task_mostafaameen.data.Api.RequestModels.LoginResponse;
 import com.example.ys_task_mostafaameen.data.Api.RequestModels.UserData;
 import com.example.ys_task_mostafaameen.data.Models.Orders.GetAllOrderRequest;
+import com.example.ys_task_mostafaameen.data.Models.Orders.OrderResponse;
 import com.example.ys_task_mostafaameen.data.Retrofit.ApiClient;
 import com.example.ys_task_mostafaameen.data.Retrofit.LoginApi;
 import com.example.ys_task_mostafaameen.data.Retrofit.OrdersApi;
@@ -30,41 +31,25 @@ public class OrderRepository{
         this.api = ApiClient.getClient().create(OrdersApi.class);
     }
 
-    public LiveData<LoginResponse> getAllOrders (GetAllOrderRequest authRequest){
+    public LiveData<OrderResponse> getAllOrders (GetAllOrderRequest orderRequest){
 
-        MutableLiveData<LoginResponse> data = new MutableLiveData<>();
-        Log.d("data_request" ,authRequest.getValue().getUnitNo() + " " +authRequest.getValue().getPassword());
+        MutableLiveData<OrderResponse> data = new MutableLiveData<>();
+        Log.d("data_request" ,orderRequest.toString() );
 
-        Call<LoginResponse> call = api.login(authRequest);
+        Call<OrderResponse> call = api.getAllOrders(orderRequest);
 
-        call.enqueue(new Callback<LoginResponse>() {
+        call.enqueue(new Callback<OrderResponse>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+            public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
 
-                    Log.d("API_RESPONSE", response.toString());
-
-                    Datam dd =  response.body().getData();
-                    Log.d("API_RESPONSE22", dd.toString());
-                    UserData userData = dd.getUserData();
-
-                    UserDataRoom user = new UserDataRoom();
-
-                    user.setUserId("123");
-                    user.setAdminName("Admin");
-                    user.setPassword("pass123");
-                    user.setLogin("adminLogin");
-                    user.setTerminalNo("1001");
-                    user.setTerminalName("Terminal A");
-                    dbHelper.insertUser(user);
-
-
+                    Log.d("API_RESPONSE", response.body().toString());
 
                     data.setValue(response.body());
 
                 } else {
 
-                    Log.d("API_RESPONSE", response.toString());
+                    Log.d("API_RdddESPONSE", response.toString());
                     data.setValue(null);
                 }
 
@@ -72,7 +57,7 @@ public class OrderRepository{
 
             @Override
 
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
+            public void onFailure(Call<OrderResponse> call, Throwable t) {
                 Log.d("API_ERROR", t.getMessage());
                 data.setValue(null);
 

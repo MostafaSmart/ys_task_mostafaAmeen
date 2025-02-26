@@ -90,6 +90,9 @@ public class LoginActivity extends AppCompatActivity {
             if (sectionResponse != null ) {
 
                 Log.d("result" ,sectionResponse.toString());
+                Intent intent = new Intent(this,HomeActivity.class);
+                startActivity(intent);
+                finish();
 
             } else {
 

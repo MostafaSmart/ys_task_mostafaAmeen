@@ -1,54 +1,146 @@
 package com.example.ys_task_mostafaameen.data.Models.Orders;
 
 import java.util.List;
-
+import com.google.gson.annotations.SerializedName;
+import java.util.List;
 public class OrderMaster {
-    private String BILL_NO;
-    private String ORDR_SRL;
-    private String BILL_DATE;
-    private String BILL_TIME;
-    private String ORDR_NOTE;
-    private String BILL_DOC_TYPE;
-    private String BILL_DOC_TYPE_NM;
-    private String LAST_UPDT;
-    private String CNCL_FLG;
-    private String PRCSSD_FLG;
-    private String PRCSSD_U_ID;
-    private String PRCSSD_DATE;
-    private String AD_DATE;
-    private String ORDR_TRC_FLG;
-    private String PSSD_TM;
-    private String ORDR_STS;
-    private List<OrderDetail> ordrDtl; // قائمة بالأصناف داخل الطلب
+    @SerializedName("BILL_NO")
+    private String billNo;
 
-    // Getters and Setters
-    public String getBILL_NO() { return BILL_NO; }
-    public void setBILL_NO(String BILL_NO) { this.BILL_NO = BILL_NO; }
+    @SerializedName("ORDR_SRL")
+    private String orderSerial;
 
-    public String getORDR_SRL() { return ORDR_SRL; }
-    public void setORDR_SRL(String ORDR_SRL) { this.ORDR_SRL = ORDR_SRL; }
+    @SerializedName("BILL_DATE")
+    private String billDate;
 
-    public String getBILL_DATE() { return BILL_DATE; }
-    public void setBILL_DATE(String BILL_DATE) { this.BILL_DATE = BILL_DATE; }
+    @SerializedName("BILL_TIME")
+    private String billTime;
 
-    public String getBILL_TIME() { return BILL_TIME; }
-    public void setBILL_TIME(String BILL_TIME) { this.BILL_TIME = BILL_TIME; }
+    @SerializedName("ORDR_NOTE")
+    private String orderNote;
 
-    public String getORDR_NOTE() { return ORDR_NOTE; }
-    public void setORDR_NOTE(String ORDR_NOTE) { this.ORDR_NOTE = ORDR_NOTE; }
+    @SerializedName("BILL_DOC_TYPE")
+    private String billDocType;
 
-    public String getBILL_DOC_TYPE() { return BILL_DOC_TYPE; }
-    public void setBILL_DOC_TYPE(String BILL_DOC_TYPE) { this.BILL_DOC_TYPE = BILL_DOC_TYPE; }
+    @SerializedName("BILL_DOC_TYPE_NM")
+    private String billDocTypeName;
 
-    public String getBILL_DOC_TYPE_NM() { return BILL_DOC_TYPE_NM; }
-    public void setBILL_DOC_TYPE_NM(String BILL_DOC_TYPE_NM) { this.BILL_DOC_TYPE_NM = BILL_DOC_TYPE_NM; }
+    @SerializedName("LAST_UPDT")
+    private String lastUpdate;
 
-    public String getCNCL_FLG() { return CNCL_FLG; }
-    public void setCNCL_FLG(String CNCL_FLG) { this.CNCL_FLG = CNCL_FLG; }
+    @SerializedName("CNCL_FLG")
+    private String cancelFlag;
 
-    public String getPRCSSD_FLG() { return PRCSSD_FLG; }
-    public void setPRCSSD_FLG(String PRCSSD_FLG) { this.PRCSSD_FLG = PRCSSD_FLG; }
+    @SerializedName("PRCSSD_FLG")
+    private String processedFlag;
 
-    public List<OrderDetail> getOrdrDtl() { return ordrDtl; }
-    public void setOrdrDtl(List<OrderDetail> ordrDtl) { this.ordrDtl = ordrDtl; }
+    @SerializedName("PRCSSD_U_ID")
+    private String processedUserId;
+
+    @SerializedName("PRCSSD_DATE")
+    private String processedDate;
+
+    @SerializedName("AD_DATE")
+    private String addedDate;
+
+    @SerializedName("ORDR_TRC_FLG")
+    private String orderTraceFlag;
+
+    @SerializedName("PSSD_TM")
+    private String passedTime;
+
+    @SerializedName("ORDR_STS")
+    private String orderStatus;
+
+    @SerializedName("ordrDtl")
+    private List<OrderDetail> orderDetails;
+
+    // الحقول الإضافية الموجودة في JSON ولكن غير موجودة في الكود الأصلي
+    @SerializedName("BILL_SRL")
+    private String billSerial;
+
+    @SerializedName("BILL_SRVC_TYPE")
+    private String billServiceType;
+
+    @SerializedName("BRN_NO")
+    private String branchNo;
+
+    @SerializedName("HALL_NO")
+    private String hallNo;
+
+    @SerializedName("PRCSS_TM")
+    private String processTime;
+
+    @SerializedName("PRNT_DATE")
+    private String printDate;
+
+    @SerializedName("STG_NO")
+    private String stageNo;
+
+    @SerializedName("STG_ORDR")
+    private String stageOrder;
+
+    @SerializedName("TBL_NO")
+    private String tableNo;
+
+    @SerializedName("TRMNL_NM")
+    private String terminalName;
+
+    @SerializedName("TRMNL_NO")
+    private String terminalNo;
+
+    // Getters and Setters لجميع الحقول
+    public String getBillNo() { return billNo; }
+    public void setBillNo(String billNo) { this.billNo = billNo; }
+
+    public String getOrderSerial() { return orderSerial; }
+    public void setOrderSerial(String orderSerial) { this.orderSerial = orderSerial; }
+
+    public String getBillDate() { return billDate; }
+    public void setBillDate(String billDate) { this.billDate = billDate; }
+
+    public String getBillTime() { return billTime; }
+    public void setBillTime(String billTime) { this.billTime = billTime; }
+
+    public String getOrderNote() { return orderNote; }
+    public void setOrderNote(String orderNote) { this.orderNote = orderNote; }
+
+    public String getBillDocType() { return billDocType; }
+    public void setBillDocType(String billDocType) { this.billDocType = billDocType; }
+
+    public String getBillDocTypeName() { return billDocTypeName; }
+    public void setBillDocTypeName(String billDocTypeName) { this.billDocTypeName = billDocTypeName; }
+
+    public String getLastUpdate() { return lastUpdate; }
+    public void setLastUpdate(String lastUpdate) { this.lastUpdate = lastUpdate; }
+
+    public String getCancelFlag() { return cancelFlag; }
+    public void setCancelFlag(String cancelFlag) { this.cancelFlag = cancelFlag; }
+
+    public String getProcessedFlag() { return processedFlag; }
+    public void setProcessedFlag(String processedFlag) { this.processedFlag = processedFlag; }
+
+    public String getProcessedUserId() { return processedUserId; }
+    public void setProcessedUserId(String processedUserId) { this.processedUserId = processedUserId; }
+
+    public String getProcessedDate() { return processedDate; }
+    public void setProcessedDate(String processedDate) { this.processedDate = processedDate; }
+
+    public String getAddedDate() { return addedDate; }
+    public void setAddedDate(String addedDate) { this.addedDate = addedDate; }
+
+    public String getOrderTraceFlag() { return orderTraceFlag; }
+    public void setOrderTraceFlag(String orderTraceFlag) { this.orderTraceFlag = orderTraceFlag; }
+
+    public String getPassedTime() { return passedTime; }
+    public void setPassedTime(String passedTime) { this.passedTime = passedTime; }
+
+    public String getOrderStatus() { return orderStatus; }
+    public void setOrderStatus(String orderStatus) { this.orderStatus = orderStatus; }
+
+    public List<OrderDetail> getOrderDetails() { return orderDetails; }
+    public void setOrderDetails(List<OrderDetail> orderDetails) { this.orderDetails = orderDetails; }
+
+    public String getTableNo() { return tableNo; }
+    public void setTableNo(String tableNo) { this.tableNo = tableNo; }
 }
